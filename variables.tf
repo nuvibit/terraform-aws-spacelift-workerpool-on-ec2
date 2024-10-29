@@ -14,6 +14,12 @@ variable "configuration" {
   EOF
 }
 
+variable "custom_userdata" {
+  type        = string
+  description = "This allows you to overwrite userdata. 'var.configuration' will be ignored. This is required for spacelift self-hosted."
+  default     = ""
+}
+
 variable "disable_container_credentials" {
   type        = bool
   description = <<EOF

@@ -138,7 +138,7 @@ module "asg" {
   ] : []
 
   # User data
-  user_data = base64encode(
+  user_data = length(var.custom_userdata) > 0 ? base64encode(var.custom_userdata) : base64encode(
     join("\n", [
       local.user_data_head,
       var.configuration,
